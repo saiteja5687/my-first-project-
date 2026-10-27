@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://app.remix.live/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaiTejaToken DApp</title>
+    <script src="./saved_resource"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+          "ethers": "https://esm.sh/ethers@6.11.1"
+        }
+      }
+    </script>
+    <link href="./css2(1)" rel="stylesheet">
+    <script>
+      window.__QUICK_DAPP_CONFIG__ = {
+        title: "SaiTejaToken",
+        contracts: [
+          {
+            id: "SaiTejaToken",
+            alias: "SaiTejaToken",
+            name: "SaiTejaToken",
+            address: "0xddaAd340b0f1Ef65169Ae5E41A8b10776a75482d",
+            abi: [
+              {
+                "inputs": [
+                  { "internalType": "address", "name": "owner", "type": "address" },
+                  { "internalType": "address", "name": "spender", "type": "address" }
+                ],
+                "name": "allowance",
+                "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "inputs": [
+                  { "internalType": "address", "name": "spender", "type": "address" },
+                  { "internalType": "uint256", "name": "amount", "type": "uint256" }
+                ],
+                "name": "approve",
+                "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+                "stateMutability": "nonpayable",
+                "type": "function"
+              },
+              {
+                "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
+                "name": "balanceOf",
+                "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "inputs": [],
+                "name": "decimals",
+                "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "inputs": [],
+                "name": "name",
+                "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "inputs": [],
+                "name": "symbol",
+                "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "inputs": [],
+                "name": "totalSupply",
+                "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+                "stateMutability": "view",
+                "type": "function"
+              },
+              {
+                "inputs": [
+                  { "internalType": "address", "name": "to", "type": "address" },
+                  { "internalType": "uint256", "name": "amount", "type": "uint256" }
+                ],
+                "name": "transfer",
+                "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+                "stateMutability": "nonpayable",
+                "type": "function"
+              },
+              {
+                "inputs": [
+                  { "internalType": "address", "name": "from", "type": "address" },
+                  { "internalType": "address", "name": "to", "type": "address" },
+                  { "internalType": "uint256", "name": "amount", "type": "uint256" }
+                ],
+                "name": "transferFrom",
+                "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+                "stateMutability": "nonpayable",
+                "type": "function"
+              }
+            ],
+            chainId: "vm-osaka"
+          }
+        ],
+        primaryContractId: "SaiTejaToken"
+      };
+    </script>
+    
+  <script>
+window.onerror = function(msg, url, line, col, error) {
+  try { parent.console.error('[DApp-iframe] Error:', msg, 'at', url, 'line', line); } catch(e) {}
+  try { parent.postMessage({ source: 'quickdapp-preview', type: 'runtime-error', message: String(msg), file: url || '', line: line, col: col, stack: error && error.stack || '' }, '*'); } catch(e) {}
+};
+window.addEventListener('unhandledrejection', function(e) {
+  try { parent.console.error('[DApp-iframe] Unhandled rejection:', e.reason); } catch(e2) {}
+  try {
+    var err = e.reason instanceof Error ? e.reason : null;
+    var msg = err ? err.message : String(e.reason);
+    parent.postMessage({ source: 'quickdapp-preview', type: 'runtime-error', message: msg, stack: err && err.stack || '' }, '*');
+  } catch(e2) {}
+});
+</script>
+<script>window.__QUICK_DAPP_CONFIG__={"logo":"","title":"SaiTejaToken","details":"Generated by AI","contracts":[{"id":"vm-osaka:0xddaad340b0f1ef65169ae5e41a8b10776a75482d","alias":"SaiTejaToken","name":"SaiTejaToken","address":"0xddaAd340b0f1Ef65169Ae5E41A8b10776a75482d","abi":[{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"allowance","type":"uint256"},{"internalType":"uint256","name":"needed","type":"uint256"}],"name":"ERC20InsufficientAllowance","type":"error"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"uint256","name":"balance","type":"uint256"},{"internalType":"uint256","name":"needed","type":"uint256"}],"name":"ERC20InsufficientBalance","type":"error"},{"inputs":[{"internalType":"address","name":"approver","type":"address"}],"name":"ERC20InvalidApprover","type":"error"},{"inputs":[{"internalType":"address","name":"receiver","type":"address"}],"name":"ERC20InvalidReceiver","type":"error"},{"inputs":[{"internalType":"address","name":"sender","type":"address"}],"name":"ERC20InvalidSender","type":"error"},{"inputs":[{"internalType":"address","name":"spender","type":"address"}],"name":"ERC20InvalidSpender","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}],"chainId":"vm-osaka","networkName":"VM"}],"primaryContractId":"vm-osaka:0xddaad340b0f1ef65169ae5e41a8b10776a75482d"};</script>
+
+
+<script>
+(function() {
+  if (parent.__remixVMBridge) {
+    var _listeners = {};
+    function emit(event, payload) {
+      (_listeners[event] || []).slice().forEach(function(cb) {
+        try { cb(payload); } catch (e) { setTimeout(function() { throw e; }, 0); }
+      });
+    }
+    function setAccounts(accounts, emitChange) {
+      window.ethereum.selectedAddress = accounts && accounts[0] ? accounts[0] : null;
+      if (emitChange) {
+        emit('accountsChanged', accounts || []);
+      }
+      return accounts;
+    }
+    function syncSelectedAddress(method, result) {
+      if (method === 'eth_accounts' || method === 'eth_requestAccounts') {
+        return setAccounts(result, false);
+      }
+      return result;
+    }
+    window.ethereum = {
+      isMetaMask: false,
+      isRemixVM: true,
+      _events: {},
+      request: function(args) {
+        return parent.__remixVMBridge.request(args).then(function(result) {
+          return syncSelectedAddress(args && args.method, result);
+        });
+      },
+      send: function(method, params) {
+        var requestArgs = typeof method === 'object' ? method : { method: method, params: params || [] };
+        return parent.__remixVMBridge.request(requestArgs).then(function(result) {
+          return syncSelectedAddress(requestArgs && requestArgs.method, result);
+        });
+      },
+      on: function(event, cb) {
+        if (!_listeners[event]) _listeners[event] = [];
+        _listeners[event].push(cb);
+        return this;
+      },
+      removeListener: function(event, cb) {
+        if (_listeners[event]) {
+          _listeners[event] = _listeners[event].filter(function(l) { return l !== cb; });
+        }
+        return this;
+      },
+      removeAllListeners: function() { _listeners = {}; return this; }
+    };
+    window.ethereum.chainId = '0x539';
+    window.ethereum.selectedAddress = null;
+    window.__remixVMUpdateAccounts = function(accounts) {
+      return setAccounts(accounts, true);
+    };
+  } else if (parent.__quickDappDesktopWalletBridge) {
+    var _desktopListeners = {};
+    function emitDesktopEvent(event, payload) {
+      (_desktopListeners[event] || []).slice().forEach(function(cb) {
+        try { cb(payload); } catch (e) { setTimeout(function() { throw e; }, 0); }
+      });
+    }
+    function syncDesktopProvider(method, result) {
+      if (method === 'eth_accounts' || method === 'eth_requestAccounts') {
+        window.ethereum.selectedAddress = result && result[0] ? result[0] : null;
+      }
+      if (method === 'eth_chainId') {
+        window.ethereum.chainId = result || null;
+      }
+      return result;
+    }
+    window.ethereum = {
+      isMetaMask: false,
+      isRemixDesktop: true,
+      chainId: null,
+      selectedAddress: null,
+      request: function(args) {
+        return parent.__quickDappDesktopWalletBridge.request(args).then(function(result) {
+          return syncDesktopProvider(args && args.method, result);
+        });
+      },
+      send: function(method, params) {
+        var requestArgs = typeof method === 'object' ? method : { method: method, params: params || [] };
+        return parent.__quickDappDesktopWalletBridge.request(requestArgs).then(function(result) {
+          return syncDesktopProvider(requestArgs && requestArgs.method, result);
+        });
+      },
+      on: function(event, cb) {
+        if (!_desktopListeners[event]) _desktopListeners[event] = [];
+        _desktopListeners[event].push(cb);
+        return this;
+      },
+      removeListener: function(event, cb) {
+        if (_desktopListeners[event]) {
+          _desktopListeners[event] = _desktopListeners[event].filter(function(listener) { return listener !== cb; });
+        }
+        return this;
+      },
+      removeAllListeners: function() { _desktopListeners = {}; return this; }
+    };
+    window.__quickDappDesktopWalletUpdate = function(update) {
+      if (update && update.accounts) {
+        window.ethereum.selectedAddress = update.accounts[0] || null;
+        emitDesktopEvent('accountsChanged', update.accounts);
+      }
+      if (update && update.chainId && update.chainId !== window.ethereum.chainId) {
+        window.ethereum.chainId = update.chainId;
+        emitDesktopEvent('chainChanged', update.chainId);
+      }
+      if (update && update.disconnected) {
+        window.ethereum.selectedAddress = null;
+        emitDesktopEvent('disconnect', { code: 4900, message: 'Browser Wallet disconnected.' });
+      }
+    };
+  } else if (parent.window && parent.window.ethereum) {
+    window.ethereum = parent.window.ethereum;
+  }
+})();
+</script>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}</style></head>
+  <body>
+    <div id="root"><div class="animated-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><div class="blob blob-4"></div><div style="min-height: 100vh; padding: 40px 20px; max-width: 920px; margin: 0px auto;"><header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 16px;"><div style="display: flex; align-items: center; gap: 16px;"><div style="width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, rgb(255, 46, 99) 0%, rgb(160, 32, 240) 50%, rgb(0, 225, 255) 100%); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; font-family: var(--font-display); color: rgb(255, 255, 255); box-shadow: rgba(160, 32, 240, 0.35) 0px 4px 20px;">SA</div><div><h1 style="font-family: var(--font-display); font-size: 26px; font-weight: 800; line-height: 1.2;">Sai Teja Token</h1><p style="font-size: 13px; color: rgba(240, 240, 255, 0.4); font-family: var(--font-body);">ERC-20 Token Interface</p></div></div><div class="addr-pill">0x5B38…ddC4</div></header><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 36px;"><div class="glass stat-card" style="padding: 20px 22px;"><p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(240, 240, 255, 0.4); margin-bottom: 8px;">Symbol</p><p style="font-family: var(--font-display); font-size: 24px; font-weight: 700;">ST</p></div><div class="glass stat-card" style="padding: 20px 22px;"><p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(240, 240, 255, 0.4); margin-bottom: 8px;">Decimals</p><p style="font-family: var(--font-display); font-size: 24px; font-weight: 700;">18</p></div><div class="glass stat-card" style="padding: 20px 22px;"><p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(240, 240, 255, 0.4); margin-bottom: 8px;">Total Supply</p><p style="font-family: var(--font-display); font-size: 24px; font-weight: 700; word-break: break-all;">1,000,000</p></div><div class="glass stat-card" style="padding: 20px 22px;"><p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(240, 240, 255, 0.4); margin-bottom: 8px;">Your Balance</p><p style="font-family: var(--font-display); font-size: 24px; font-weight: 700; word-break: break-all;">1,000,000</p></div></div><div class="glass" style="display: flex; gap: 8px; padding: 6px; margin-bottom: 24px; flex-wrap: wrap;"><button class="tab-btn active" style="flex: 1 1 auto; text-align: center;">Transfer</button><button class="tab-btn " style="flex: 1 1 auto; text-align: center;">Approve</button><button class="tab-btn " style="flex: 1 1 auto; text-align: center;">Allowance</button><button class="tab-btn " style="flex: 1 1 auto; text-align: center;">Check Balance</button></div><div class="glass" style="padding: 32px; min-height: 320px;"><div style="max-width: 540px; margin: 0px auto;"><h2 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 6px;">Transfer Tokens</h2><p style="color: rgba(240, 240, 255, 0.45); font-size: 14px; margin-bottom: 28px;">Send ST tokens to any address.</p><div style="display: flex; flex-direction: column; gap: 18px;"><div><label style="font-size: 13px; color: rgba(240, 240, 255, 0.5); display: block; margin-bottom: 8px; font-family: var(--font-body); font-weight: 500;">Recipient Address</label><input class="glass-input" type="text" placeholder="0x…" value=""></div><div><label style="font-size: 13px; color: rgba(240, 240, 255, 0.5); display: block; margin-bottom: 8px; font-family: var(--font-body); font-weight: 500;">Amount (ST)</label><input class="glass-input" type="text" placeholder="0.0" value=""></div><button class="btn-glassy" style="margin-top: 8px;">Transfer ST</button></div></div></div><footer style="text-align: center; margin-top: 48px; color: rgba(240, 240, 255, 0.25); font-size: 12px; font-family: var(--font-body);"><p>SaiTejaToken · ERC-20 Interface · Powered by QuickDapp</p></footer></div></div></div>
+    
+<script type="module">
+// local:/src/main.jsx
+import React2 from "https://esm.sh/react@18.2.0";
+import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+
+// local:/src/App.jsx
+import React, { useState, useEffect, useCallback, useRef } from "https://esm.sh/react@18.2.0";
+import { ethers } from "https://esm.sh/ethers@6.11.1";
+function App() {
+  const [config] = useState(() => window.__QUICK_DAPP_CONFIG__ || {});
+  const [connected, setConnected] = useState(false);
+  const [account, setAccount] = useState("");
+  const [signer, setSigner] = useState(null);
+  const [provider, setProvider] = useState(null);
+  const [contract, setContract] = useState(null);
+  const [tokenInfo, setTokenInfo] = useState({ name: "", symbol: "", decimals: 18, totalSupply: "0" });
+  const [myBalance, setMyBalance] = useState("0");
+  const [activeTab, setActiveTab] = useState("transfer");
+  const [toast, setToast] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [tokenInfoLoading, setTokenInfoLoading] = useState(true);
+  const toastTimer = useRef(null);
+  const showToast = useCallback((message, type = "info") => {
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    setToast({ message, type });
+    toastTimer.current = setTimeout(() => setToast(null), 5e3);
+  }, []);
+  const getContractFromConfig = useCallback((signerOrProvider) => {
+    const binding = (config.contracts || []).find((c) => c.id === config.primaryContractId);
+    if (!binding || !binding.address || !binding.abi) return null;
+    return new ethers.Contract(binding.address, binding.abi, signerOrProvider);
+  }, [config]);
+  const loadTokenInfo = useCallback(async (c) => {
+    try {
+      const [name, symbol, decimals, totalSupply] = await Promise.all([
+        c.name(),
+        c.symbol(),
+        c.decimals(),
+        c.totalSupply()
+      ]);
+      setTokenInfo({
+        name: name || "Unknown",
+        symbol: symbol || "?",
+        decimals: Number(decimals),
+        totalSupply: ethers.formatUnits(totalSupply, Number(decimals))
+      });
+    } catch (err) {
+      console.error("Failed to load token info:", err);
+      showToast("Failed to load token info", "error");
+    } finally {
+      setTokenInfoLoading(false);
+    }
+  }, [showToast]);
+  const loadBalance = useCallback(async (c, addr) => {
+    try {
+      const bal = await c.balanceOf(addr);
+      setMyBalance(ethers.formatUnits(bal, tokenInfo.decimals || 18));
+    } catch (err) {
+      console.error("Failed to load balance:", err);
+    }
+  }, [tokenInfo.decimals]);
+  const connectWallet = useCallback(async () => {
+    if (!window.ethereum) {
+      showToast("No wallet provider found", "error");
+      return;
+    }
+    try {
+      setLoading(true);
+      const p = new ethers.BrowserProvider(window.ethereum);
+      await p.send("eth_requestAccounts", []);
+      const s = await p.getSigner();
+      const addr = await s.getAddress();
+      setProvider(p);
+      setSigner(s);
+      setAccount(addr);
+      setConnected(true);
+      const c = getContractFromConfig(s);
+      if (c) {
+        setContract(c);
+        await loadTokenInfo(c);
+        await loadBalance(c, addr);
+      }
+    } catch (err) {
+      console.error("Connection failed:", err);
+      showToast("Failed to connect wallet", "error");
+    } finally {
+      setLoading(false);
+    }
+  }, [getContractFromConfig, loadTokenInfo, loadBalance, showToast]);
+  useEffect(() => {
+    if (!window.ethereum) return;
+    const handleAccountsChanged = async (accounts) => {
+      if (accounts.length === 0) {
+        setConnected(false);
+        setAccount("");
+        setSigner(null);
+        setContract(null);
+        setMyBalance("0");
+        return;
+      }
+      try {
+        const p = new ethers.BrowserProvider(window.ethereum);
+        const s = await p.getSigner();
+        const addr = await s.getAddress();
+        setProvider(p);
+        setSigner(s);
+        setAccount(addr);
+        setConnected(true);
+        const c = getContractFromConfig(s);
+        if (c) {
+          setContract(c);
+          await loadTokenInfo(c);
+          await loadBalance(c, addr);
+        }
+      } catch (err) {
+        console.error("Account switch failed:", err);
+      }
+    };
+    window.ethereum.on?.("accountsChanged", handleAccountsChanged);
+    return () => {
+      window.ethereum.removeListener?.("accountsChanged", handleAccountsChanged);
+    };
+  }, [getContractFromConfig, loadTokenInfo, loadBalance]);
+  useEffect(() => {
+    if (window.ethereum) {
+      connectWallet();
+    }
+  }, []);
+  const [transferTo, setTransferTo] = useState("");
+  const [transferAmount, setTransferAmount] = useState("");
+  const handleTransfer = async () => {
+    if (!contract || !signer) {
+      showToast("Not connected", "error");
+      return;
+    }
+    if (!transferTo || !transferAmount) {
+      showToast("Fill in all fields", "error");
+      return;
+    }
+    try {
+      setLoading(true);
+      showToast("Preparing transfer\u2026", "info");
+      const amount = ethers.parseUnits(transferAmount, tokenInfo.decimals);
+      const tx = await contract.transfer(transferTo, amount);
+      showToast("Transaction submitted, waiting for confirmation\u2026", "info");
+      await tx.wait();
+      showToast(`Transferred ${transferAmount} ${tokenInfo.symbol} successfully!`, "success");
+      setTransferTo("");
+      setTransferAmount("");
+      await loadBalance(contract, account);
+    } catch (err) {
+      console.error("Transfer failed:", err);
+      showToast(err.reason || err.shortMessage || "Transfer failed", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+  const [approveSpender, setApproveSpender] = useState("");
+  const [approveAmount, setApproveAmount] = useState("");
+  const handleApprove = async () => {
+    if (!contract || !signer) {
+      showToast("Not connected", "error");
+      return;
+    }
+    if (!approveSpender || !approveAmount) {
+      showToast("Fill in all fields", "error");
+      return;
+    }
+    try {
+      setLoading(true);
+      showToast("Preparing approval\u2026", "info");
+      const amount = ethers.parseUnits(approveAmount, tokenInfo.decimals);
+      const tx = await contract.approve(approveSpender, amount);
+      showToast("Transaction submitted, waiting for confirmation\u2026", "info");
+      await tx.wait();
+      showToast(`Approved ${approveAmount} ${tokenInfo.symbol} for ${approveSpender.slice(0, 8)}\u2026`, "success");
+      setApproveSpender("");
+      setApproveAmount("");
+    } catch (err) {
+      console.error("Approve failed:", err);
+      showToast(err.reason || err.shortMessage || "Approve failed", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+  const [allowanceOwner, setAllowanceOwner] = useState("");
+  const [allowanceSpender, setAllowanceSpender] = useState("");
+  const [allowanceResult, setAllowanceResult] = useState(null);
+  const handleCheckAllowance = async () => {
+    if (!contract) {
+      showToast("Not connected", "error");
+      return;
+    }
+    if (!allowanceOwner || !allowanceSpender) {
+      showToast("Fill in both addresses", "error");
+      return;
+    }
+    try {
+      setLoading(true);
+      const result = await contract.allowance(allowanceOwner, allowanceSpender);
+      const formatted = ethers.formatUnits(result, tokenInfo.decimals);
+      setAllowanceResult(formatted);
+      showToast("Allowance fetched", "success");
+    } catch (err) {
+      console.error("Allowance check failed:", err);
+      showToast(err.reason || err.shortMessage || "Allowance check failed", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+  const [checkAddr, setCheckAddr] = useState("");
+  const [checkResult, setCheckResult] = useState(null);
+  const handleCheckBalance = async () => {
+    if (!contract) {
+      showToast("Not connected", "error");
+      return;
+    }
+    if (!checkAddr) {
+      showToast("Enter an address", "error");
+      return;
+    }
+    try {
+      setLoading(true);
+      const bal = await contract.balanceOf(checkAddr);
+      const formatted = ethers.formatUnits(bal, tokenInfo.decimals);
+      setCheckResult(formatted);
+      showToast("Balance fetched", "success");
+    } catch (err) {
+      console.error("Balance check failed:", err);
+      showToast(err.reason || err.shortMessage || "Balance check failed", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+  const shortAddr = (addr) => {
+    if (!addr) return "";
+    return addr.slice(0, 6) + "\u2026" + addr.slice(-4);
+  };
+  if (!connected && loading) {
+    return /* @__PURE__ */ React.createElement("div", { className: "animated-bg" }, /* @__PURE__ */ React.createElement("div", { className: "blob blob-1" }), /* @__PURE__ */ React.createElement("div", { className: "blob blob-2" }), /* @__PURE__ */ React.createElement("div", { className: "blob blob-3" }), /* @__PURE__ */ React.createElement("div", { className: "blob blob-4" }), /* @__PURE__ */ React.createElement("div", { style: { minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" } }, /* @__PURE__ */ React.createElement("div", { className: "spinner", style: { width: "40px", height: "40px" } }), /* @__PURE__ */ React.createElement("p", { style: { fontFamily: "var(--font-display)", fontSize: "18px", color: "rgba(240,240,255,0.6)" } }, "Connecting\u2026"))));
+  }
+  if (!connected) {
+    return /* @__PURE__ */ React.createElement("div", { className: "animated-bg" }, /* @__PURE__ */ React.createElement("div", { className: "blob blob-1" }), /* @__PURE__ */ React.createElement("div", { className: "blob blob-2" }), /* @__PURE__ */ React.createElement("div", { className: "blob blob-3" }), /* @__PURE__ */ React.createElement("div", { className: "blob blob-4" }), /* @__PURE__ */ React.createElement("div", { style: { minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px" } }, /* @__PURE__ */ React.createElement("div", { className: "glass", style: { maxWidth: "460px", width: "100%", padding: "48px 40px", textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { style: {
+      width: "80px",
+      height: "80px",
+      margin: "0 auto 28px",
+      borderRadius: "24px",
+      background: "linear-gradient(135deg, #ff2e63 0%, #a020f0 50%, #00e1ff 100%)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: "36px",
+      fontWeight: "800",
+      fontFamily: "var(--font-display)",
+      color: "#fff",
+      boxShadow: "0 8px 32px rgba(160, 32, 240, 0.4)"
+    } }, (config.title || "T").slice(0, 2).toUpperCase()), /* @__PURE__ */ React.createElement("h1", { style: { fontFamily: "var(--font-display)", fontSize: "32px", fontWeight: "800", marginBottom: "10px" } }, config.title || "SaiTejaToken"), /* @__PURE__ */ React.createElement("p", { style: { color: "rgba(240,240,255,0.5)", fontSize: "15px", marginBottom: "36px", lineHeight: "1.6" } }, "Connect your wallet to interact with the SaiTejaToken smart contract on the Remix VM."), /* @__PURE__ */ React.createElement("button", { className: "btn-glassy", style: { width: "100%" }, onClick: connectWallet, disabled: loading }, loading ? /* @__PURE__ */ React.createElement("span", { style: { display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" } }, /* @__PURE__ */ React.createElement("span", { className: "spinner" }), " Connecting\u2026") : "Connect Wallet"))));
+  }
+  return /* @__PURE__ */ React.createElement("div", { className: "animated-bg" }, /* @__PURE__ */ React.createElement("div", { className: "blob blob-1" }), /* @__PURE__ */ React.createElement("div", { className: "blob blob-2" }), /* @__PURE__ */ React.createElement("div", { className: "blob blob-3" }), /* @__PURE__ */ React.createElement("div", { className: "blob blob-4" }), /* @__PURE__ */ React.createElement("div", { style: { minHeight: "100vh", padding: "40px 20px", maxWidth: "920px", margin: "0 auto" } }, /* @__PURE__ */ React.createElement("header", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "40px", flexWrap: "wrap", gap: "16px" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: "16px" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    width: "52px",
+    height: "52px",
+    borderRadius: "16px",
+    background: "linear-gradient(135deg, #ff2e63 0%, #a020f0 50%, #00e1ff 100%)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "22px",
+    fontWeight: "800",
+    fontFamily: "var(--font-display)",
+    color: "#fff",
+    boxShadow: "0 4px 20px rgba(160, 32, 240, 0.35)"
+  } }, (config.title || "T").slice(0, 2).toUpperCase()), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontFamily: "var(--font-display)", fontSize: "26px", fontWeight: "800", lineHeight: "1.2" } }, tokenInfoLoading ? "Loading\u2026" : tokenInfo.name), /* @__PURE__ */ React.createElement("p", { style: { fontSize: "13px", color: "rgba(240,240,255,0.4)", fontFamily: "var(--font-body)" } }, "ERC-20 Token Interface"))), /* @__PURE__ */ React.createElement("div", { className: "addr-pill" }, shortAddr(account))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px", marginBottom: "36px" } }, /* @__PURE__ */ React.createElement("div", { className: "glass stat-card", style: { padding: "20px 22px" } }, /* @__PURE__ */ React.createElement("p", { style: { fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,240,255,0.4)", marginBottom: "8px" } }, "Symbol"), /* @__PURE__ */ React.createElement("p", { style: { fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: "700" } }, tokenInfoLoading ? "\u2026" : tokenInfo.symbol)), /* @__PURE__ */ React.createElement("div", { className: "glass stat-card", style: { padding: "20px 22px" } }, /* @__PURE__ */ React.createElement("p", { style: { fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,240,255,0.4)", marginBottom: "8px" } }, "Decimals"), /* @__PURE__ */ React.createElement("p", { style: { fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: "700" } }, tokenInfoLoading ? "\u2026" : tokenInfo.decimals)), /* @__PURE__ */ React.createElement("div", { className: "glass stat-card", style: { padding: "20px 22px" } }, /* @__PURE__ */ React.createElement("p", { style: { fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,240,255,0.4)", marginBottom: "8px" } }, "Total Supply"), /* @__PURE__ */ React.createElement("p", { style: { fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: "700", wordBreak: "break-all" } }, tokenInfoLoading ? "\u2026" : parseFloat(tokenInfo.totalSupply).toLocaleString(void 0, { maximumFractionDigits: 2 }))), /* @__PURE__ */ React.createElement("div", { className: "glass stat-card", style: { padding: "20px 22px" } }, /* @__PURE__ */ React.createElement("p", { style: { fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,240,255,0.4)", marginBottom: "8px" } }, "Your Balance"), /* @__PURE__ */ React.createElement("p", { style: { fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: "700", wordBreak: "break-all" } }, parseFloat(myBalance).toLocaleString(void 0, { maximumFractionDigits: 4 })))), /* @__PURE__ */ React.createElement("div", { className: "glass", style: { display: "flex", gap: "8px", padding: "6px", marginBottom: "24px", flexWrap: "wrap" } }, ["transfer", "approve", "allowance", "balance"].map((tab) => /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      key: tab,
+      className: `tab-btn ${activeTab === tab ? "active" : ""}`,
+      onClick: () => {
+        setActiveTab(tab);
+        setAllowanceResult(null);
+        setCheckResult(null);
+      },
+      style: { flex: "1 1 auto", textAlign: "center" }
+    },
+    tab === "transfer" ? "Transfer" : tab === "approve" ? "Approve" : tab === "allowance" ? "Allowance" : "Check Balance"
+  ))), /* @__PURE__ */ React.createElement("div", { className: "glass", style: { padding: "32px", minHeight: "320px" } }, activeTab === "transfer" && /* @__PURE__ */ React.createElement("div", { style: { maxWidth: "540px", margin: "0 auto" } }, /* @__PURE__ */ React.createElement("h2", { style: { fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "700", marginBottom: "6px" } }, "Transfer Tokens"), /* @__PURE__ */ React.createElement("p", { style: { color: "rgba(240,240,255,0.45)", fontSize: "14px", marginBottom: "28px" } }, "Send ", tokenInfo.symbol, " tokens to any address."), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: "18px" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { style: { fontSize: "13px", color: "rgba(240,240,255,0.5)", display: "block", marginBottom: "8px", fontFamily: "var(--font-body)", fontWeight: "500" } }, "Recipient Address"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      className: "glass-input",
+      type: "text",
+      placeholder: "0x\u2026",
+      value: transferTo,
+      onChange: (e) => setTransferTo(e.target.value)
+    }
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { style: { fontSize: "13px", color: "rgba(240,240,255,0.5)", display: "block", marginBottom: "8px", fontFamily: "var(--font-body)", fontWeight: "500" } }, "Amount (", tokenInfo.symbol, ")"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      className: "glass-input",
+      type: "text",
+      placeholder: "0.0",
+      value: transferAmount,
+      onChange: (e) => setTransferAmount(e.target.value)
+    }
+  )), /* @__PURE__ */ React.createElement("button", { className: "btn-glassy", style: { marginTop: "8px" }, onClick: handleTransfer, disabled: loading }, loading ? /* @__PURE__ */ React.createElement("span", { style: { display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" } }, /* @__PURE__ */ React.createElement("span", { className: "spinner" }), " Sending\u2026") : `Transfer ${tokenInfo.symbol}`))), activeTab === "approve" && /* @__PURE__ */ React.createElement("div", { style: { maxWidth: "540px", margin: "0 auto" } }, /* @__PURE__ */ React.createElement("h2", { style: { fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "700", marginBottom: "6px" } }, "Approve Spender"), /* @__PURE__ */ React.createElement("p", { style: { color: "rgba(240,240,255,0.45)", fontSize: "14px", marginBottom: "28px" } }, "Allow an address to spend your ", tokenInfo.symbol, " tokens on your behalf."), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: "18px" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { style: { fontSize: "13px", color: "rgba(240,240,255,0.5)", display: "block", marginBottom: "8px", fontFamily: "var(--font-body)", fontWeight: "500" } }, "Spender Address"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      className: "glass-input",
+      type: "text",
+      placeholder: "0x\u2026",
+      value: approveSpender,
+      onChange: (e) => setApproveSpender(e.target.value)
+    }
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { style: { fontSize: "13px", color: "rgba(240,240,255,0.5)", display: "block", marginBottom: "8px", fontFamily: "var(--font-body)", fontWeight: "500" } }, "Amount (", tokenInfo.symbol, ")"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      className: "glass-input",
+      type: "text",
+      placeholder: "0.0",
+      value: approveAmount,
+      onChange: (e) => setApproveAmount(e.target.value)
+    }
+  )), /* @__PURE__ */ React.createElement("button", { className: "btn-glassy", style: { marginTop: "8px" }, onClick: handleApprove, disabled: loading }, loading ? /* @__PURE__ */ React.createElement("span", { style: { display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" } }, /* @__PURE__ */ React.createElement("span", { className: "spinner" }), " Approving\u2026") : "Approve"))), activeTab === "allowance" && /* @__PURE__ */ React.createElement("div", { style: { maxWidth: "540px", margin: "0 auto" } }, /* @__PURE__ */ React.createElement("h2", { style: { fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "700", marginBottom: "6px" } }, "Check Allowance"), /* @__PURE__ */ React.createElement("p", { style: { color: "rgba(240,240,255,0.45)", fontSize: "14px", marginBottom: "28px" } }, "View how many ", tokenInfo.symbol, " tokens a spender is allowed to use from an owner."), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: "18px" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { style: { fontSize: "13px", color: "rgba(240,240,255,0.5)", display: "block", marginBottom: "8px", fontFamily: "var(--font-body)", fontWeight: "500" } }, "Owner Address"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      className: "glass-input",
+      type: "text",
+      placeholder: "0x\u2026",
+      value: allowanceOwner,
+      onChange: (e) => setAllowanceOwner(e.target.value)
+    }
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { style: { fontSize: "13px", color: "rgba(240,240,255,0.5)", display: "block", marginBottom: "8px", fontFamily: "var(--font-body)", fontWeight: "500" } }, "Spender Address"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      className: "glass-input",
+      type: "text",
+      placeholder: "0x\u2026",
+      value: allowanceSpender,
+      onChange: (e) => setAllowanceSpender(e.target.value)
+    }
+  )), /* @__PURE__ */ React.createElement("button", { className: "btn-glassy", style: { marginTop: "8px" }, onClick: handleCheckAllowance, disabled: loading }, loading ? /* @__PURE__ */ React.createElement("span", { style: { display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" } }, /* @__PURE__ */ React.createElement("span", { className: "spinner" }), " Checking\u2026") : "Check Allowance"), allowanceResult !== null && /* @__PURE__ */ React.createElement("div", { className: "glass-inner", style: { padding: "20px", textAlign: "center" } }, /* @__PURE__ */ React.createElement("p", { style: { fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,240,255,0.4)", marginBottom: "8px" } }, "Allowance"), /* @__PURE__ */ React.createElement("p", { style: { fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: "700", color: "#00e1ff" } }, parseFloat(allowanceResult).toLocaleString(void 0, { maximumFractionDigits: 4 }), " ", tokenInfo.symbol)))), activeTab === "balance" && /* @__PURE__ */ React.createElement("div", { style: { maxWidth: "540px", margin: "0 auto" } }, /* @__PURE__ */ React.createElement("h2", { style: { fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "700", marginBottom: "6px" } }, "Check Balance"), /* @__PURE__ */ React.createElement("p", { style: { color: "rgba(240,240,255,0.45)", fontSize: "14px", marginBottom: "28px" } }, "Look up the ", tokenInfo.symbol, " balance of any wallet address."), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: "18px" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { style: { fontSize: "13px", color: "rgba(240,240,255,0.5)", display: "block", marginBottom: "8px", fontFamily: "var(--font-body)", fontWeight: "500" } }, "Wallet Address"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      className: "glass-input",
+      type: "text",
+      placeholder: "0x\u2026",
+      value: checkAddr,
+      onChange: (e) => setCheckAddr(e.target.value)
+    }
+  )), /* @__PURE__ */ React.createElement("button", { className: "btn-glassy", style: { marginTop: "8px" }, onClick: handleCheckBalance, disabled: loading }, loading ? /* @__PURE__ */ React.createElement("span", { style: { display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" } }, /* @__PURE__ */ React.createElement("span", { className: "spinner" }), " Checking\u2026") : "Check Balance"), checkResult !== null && /* @__PURE__ */ React.createElement("div", { className: "glass-inner", style: { padding: "20px", textAlign: "center" } }, /* @__PURE__ */ React.createElement("p", { style: { fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,240,255,0.4)", marginBottom: "8px" } }, "Balance"), /* @__PURE__ */ React.createElement("p", { style: { fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: "700", color: "#00e1ff" } }, parseFloat(checkResult).toLocaleString(void 0, { maximumFractionDigits: 4 }), " ", tokenInfo.symbol))))), /* @__PURE__ */ React.createElement("footer", { style: { textAlign: "center", marginTop: "48px", color: "rgba(240,240,255,0.25)", fontSize: "12px", fontFamily: "var(--font-body)" } }, /* @__PURE__ */ React.createElement("p", null, config.title || "SaiTejaToken", " \xB7 ERC-20 Interface \xB7 Powered by QuickDapp"))), toast && /* @__PURE__ */ React.createElement("div", { className: `toast toast-${toast.type}` }, toast.message));
+}
+
+// local:/src/main.jsx
+createRoot(document.getElementById("root")).render(
+  /* @__PURE__ */ React2.createElement(React2.StrictMode, null, /* @__PURE__ */ React2.createElement(App, null))
+);
+
+</script>
+
+  
+
+</body></html>
